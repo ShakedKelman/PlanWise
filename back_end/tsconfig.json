@@ -1,12 +1,18 @@
 {
     "compilerOptions": {
-        "target": "ES6",
-        "esModuleInterop": true,
-        "moduleResolution": "Node",
-        "outDir": "./build"
+      "target": "ES6",
+      "esModuleInterop": true,
+      "moduleResolution": "Node",
+      "outDir": "./build",
+      "strict": true, 
+      "jsx": "react-jsx"
     },
     "include": [
-        "src/**/*",
-        "types/**/*.d.ts" // Include custom type definitions
+      "src/**/*"
+    ],
+    "exclude": [
+      "node_modules",
+      "build"
     ]
-}
+  }
+  
