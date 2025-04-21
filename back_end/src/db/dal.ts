@@ -10,15 +10,26 @@ export const connection = mysql.createPool({
 })
 
 // Function to run an SQL query
-export default function runQuery(q: string): Promise<any[]> {
-    return new Promise((resolve, reject) => {
+// export default function runQuery(q: string): Promise<any[]> {
+//     return new Promise((resolve, reject) => {
 
-        connection.query(q, (err, res) => {
+//         connection.query(q, (err, res) => {
+//             if (err) {
+//                 reject(err);
+//                 return;
+//             }
+//             resolve(res as any[]);
+//         })
+//     });
+// }
+export default function runQuery(q: string, values?: any[]): Promise<any[]> {
+    return new Promise((resolve, reject) => {
+        connection.query(q, values, (err, res) => {
             if (err) {
                 reject(err);
                 return;
             }
             resolve(res as any[]);
-        })
+        });
     });
 }
